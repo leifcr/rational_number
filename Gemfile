@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 group :test do
+  gem 'rake'
   gem 'rspec'
   gem 'shoulda',           '>= 3.5.0'
   gem 'coveralls', :require => false
