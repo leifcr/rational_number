@@ -1,5 +1,5 @@
 # rational_number
-[![Build Status](https://travis-ci.org/leifcr/rational_number.png?branch=master)](https://travis-ci.org/leifcr/rational_number) [![Coverage Status](https://coveralls.io/repos/leifcr/rational_number/badge.png?branch=master)](https://coveralls.io/r/leifcr/rational_number?branch=master)
+[![Gem Version](https://badge.fury.io/rb/rational_number.png)](http://badge.fury.io/rb/rational_number) [![Build Status](https://travis-ci.org/leifcr/rational_number.png?branch=master)](https://travis-ci.org/leifcr/rational_number) [![Coverage Status](https://coveralls.io/repos/leifcr/rational_number/badge.png?branch=master)](https://coveralls.io/r/leifcr/rational_number?branch=master)
 
 This implements basic rational numbers in Ruby. It can be used in tree implementations and provides a really fast way of looking up a sorted tree.
 
