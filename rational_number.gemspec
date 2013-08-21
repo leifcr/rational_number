@@ -4,7 +4,7 @@ require "rational_number/version"
 
 Gem::Specification.new do |s|
   s.name = "rational_number"
-  s.version = RationalNumber::VERSION
+  s.version = RationalNumberGem::VERSION
 
   s.platform    = Gem::Platform::RUBY
   s.required_ruby_version = ">= 1.9.2"
