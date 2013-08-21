@@ -55,3 +55,22 @@ b.is_child_of?(root) # true
 b.has_ancestor?(a) # true
 a.is_ancestor_of?(b) # true
 ```
+
+For more examples see the spec in spec/rational\_number\_spec.rb
+
+## Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Send me a pull request, if you have features you like to see implemented.
+
+## Thanks
+
+_Dan Hazel_: For his paper on rational numbers
+
+## Copyright
+
+Original ideas are Copyright Jakob Vidmar and Joel Junström. Please see their github repositories for details
+Copyright (c) 2013 Leif Ringstad.
+See LICENSE for details.
