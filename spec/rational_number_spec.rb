@@ -111,10 +111,13 @@ describe "RationalNumber" do
     child_2.should   > child_1_1
     child_2.should   > child_1_3
     child_1_1.should == child_1_1
-    child_1_1.should == @root
-    child_1_1.should != child_1_3
-    child_1_1.should != child_1
-    child_1_1.should != @root
+    @root.should     == @root
+    child_2.should   == child_2
+    child_1_1.should_not == child_1_3
+    child_1_1.should_not == child_1
+    child_1_1.should_not == @root
+    child_1.should_not   == child_2
+
   end
 
   it "should set values directoy" do
@@ -164,6 +167,22 @@ describe "RationalNumber" do
     @root.is_descendant_of?(@root).should               == false
     @first_child.is_descendant_of?(@first_child).should == false
     @root.is_descendant_of?(child_1_4_9).should         == false
+  end
+
+  it "should generate a Hash from the rational number" do
+    child_1_4   = @first_child.child_from_position(4)
+    child_1_4.to_hash.should == {
+                                  :nv => child_1_4.nv,
+                                  :dv => child_1_4.dv,
+                                  :snv => child_1_4.snv,
+                                  :sdv => child_1_4.sdv,
+                                  :number => child_1_4.number
+                                }
+  end
+
+  it "should generate a nice printable string for debugging purposes" do
+    child_1_4   = @first_child.child_from_position(4)
+    child_1_4.to_s.should == "RationalNumber: number: #{child_1_4.number} nv: #{child_1_4.nv} dv: #{child_1_4.dv} snv: #{child_1_4.snv} sdv: #{child_1_4.sdv}"
   end
 
 end
