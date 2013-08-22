@@ -111,6 +111,10 @@ describe "RationalNumber" do
     child_2.should   > child_1_1
     child_2.should   > child_1_3
     child_1_1.should == child_1_1
+    child_1_1.should == @root
+    child_1_1.should != child_1_3
+    child_1_1.should != child_1
+    child_1_1.should != @root
   end
 
   it "should set values directoy" do

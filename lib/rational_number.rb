@@ -18,6 +18,9 @@ class RationalNumber # < Object
 
   ##
   # Compare to other (Comparable)
+  # Returns 1 if greater than, -1 if less than, and 0 for equality
+  #
+  # @return [Integer] Integer stating the comparison.
   #
   def <=>(other)
     return 0 if (@nv === other.nv) and (@dv === other.dv) and (@snv == other.snv) and (@sdv == other.sdv)
