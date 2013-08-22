@@ -14,7 +14,7 @@
 
 class RationalNumber # < Object
   include Comparable
-  attr :nv, :dv, :snv, :sdv, :number
+  attr_reader :nv, :dv, :snv, :sdv, :number
 
   ##
   # Compare to other (Comparable)
