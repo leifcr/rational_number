@@ -28,8 +28,6 @@ class RationalNumber # < Object
       -1
     elsif @number > other.number
       1
-    else
-      0
     end
   end
 
