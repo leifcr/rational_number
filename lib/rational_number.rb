@@ -58,23 +58,78 @@ class RationalNumber # < Object
   ##
   # Initialize rational number
   #
-  # @param [Integer] The nominator value
-  # @param [Integer] The denomitaor value
+  # @param [Integer/RationalNumber] The nominator value or a rational number, depending on number of given parameters
+  # @param [Integer] The denominator value
   # @param [Integer] The SNV value
   # @param [Integer] The SDV Value
   #
   # @return [undefined]
   #
-  def initialize(nv = 0, dv = 1, snv = 1, sdv = 0)
+  def initialize(a = nil, b = nil, c = nil, d = nil)
+    if a == nil and b == nil and c == nil and d == nil
+      init_with_4_args()
+    elsif b == nil and c == nil and d == nil
+      init_with_1_arg(a)
+    elsif c == nil and d == nil
+      init_with_2_args(a,b)
+    else
+      init_with_4_args(a,b,c,d)
+    end
+  end
+
+  ##
+  # Initialize rational number with 1 argument
+  #
+  # @param [RationalNumber] The rational number to initialize with
+  #
+  # @return [undefined]
+  #
+  def init_with_1_arg(rational_number)
+    raise ArgumentError, "given :rational_number in options is of wrong type, should be RationalNumber" unless rational_number.instance_of?(RationalNumber)
+    set_values(rational_number.nv, rational_number.dv, rational_number.snv, rational_number.sdv)
+  end
+
+  ##
+  # Initialize rational number with 2 arguments
+  #
+  # @param [Integer] The nominator value
+  # @param [Integer] The denominator value
+  #
+  # @return [undefined]
+  #
+  def init_with_2_args(nv = 0, dv = 1)
+    raise ArgumentError, ":nv and :dv must be kind_of?(Integer)." unless nv.kind_of?(Integer) and dv.kind_of?(Integer)
+    # initial values needed when getting parent and position
+    @nv = nv
+    @dv = dv
+    # calculate value
+    val = value_from_parent_and_position(self.parent, self.position)
+    raise ArgumentError, "Cannot set nv and dv values. verify the values for :nv and :dv" unless ((val.nv == nv) and (val.dv == dv))
+    set_values(val.nv,val.dv,val.snv,val.sdv)
+  end
+
+  ##
+  # Initialize rational number with 4 arguments
+  #
+  # @param [Integer] The nominator value
+  # @param [Integer] The denominator value
+  # @param [Integer] The SNV value
+  # @param [Integer] The SDV Value
+  #
+  # @return [undefined]
+  #
+  def init_with_4_args(nv = 0, dv = 1, snv = 1, sdv = 0)
+    unless nv.kind_of?(Integer) and dv.kind_of?(Integer) and snv.kind_of?(Integer) and sdv.kind_of?(Integer)
+      raise ArgumentError, ":nv, :dv, :snv and :sdv must be kind_of?(Integer)."
+    end
     set_values(nv, dv, snv, sdv)
-    #super()
   end
 
   ##
   # Set the values of nv,dv,snv and sdv directly
   #
   # @param [Integer] The nominator value
-  # @param [Integer] The denomitaor value
+  # @param [Integer] The denominator value
   # @param [Integer] The SNV value
   # @param [Integer] The SDV Value
   #
@@ -83,7 +138,11 @@ class RationalNumber # < Object
     @dv = dv
     @snv = snv
     @sdv = sdv
-    @number = Float(nv)/Float(dv)
+    if nv == 0 and dv == 0
+      @number = Float(0)
+    else
+      @number = Float(nv)/Float(dv)
+    end
   end
 
   ##
