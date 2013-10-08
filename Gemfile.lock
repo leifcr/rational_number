@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rational_number (0.1.1)
+    rational_number (0.2.0)
 
 GEM
   remote: http://rubygems.org/
