@@ -12,6 +12,8 @@
 # It is possible to verify child/parent relationships without even checking with a database.
 #
 
+require 'bigdecimal'
+
 class RationalNumber # < Object
   include Comparable
   attr_reader :nv, :dv, :snv, :sdv, :number
@@ -139,9 +141,9 @@ class RationalNumber # < Object
     @snv = snv
     @sdv = sdv
     if nv == 0 and dv == 0
-      @number = Float(0)
+      @number = BigDecimal(0)
     else
-      @number = Float(nv)/Float(dv)
+      @number = BigDecimal(nv)/BigDecimal(dv)
     end
   end
 

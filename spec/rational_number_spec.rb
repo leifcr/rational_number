@@ -82,12 +82,12 @@ describe "RationalNumber" do
       @root.dv.should ==  1
       @root.snv.should == 1
       @root.sdv.should == 0
-      @root.number.should == Float(0)
+      @root.number.should == BigDecimal(0)
     end
 
     it "should create a 0 based rational number without getting div by zero" do
       test = RationalNumber.new(0,0,0,0)
-      test.number.should == Float(0)
+      test.number.should == BigDecimal(0)
     end
 
     it "should get the first child values" do
@@ -95,7 +95,7 @@ describe "RationalNumber" do
       @first_child.dv.should  == 1
       @first_child.snv.should == 2
       @first_child.sdv.should == 1
-      @first_child.number.should == Float(@first_child.nv)/Float(@first_child.dv)
+      @first_child.number.should == BigDecimal(@first_child.nv)/BigDecimal(@first_child.dv)
     end
 
     it "should verify the parent values of the first child" do
@@ -116,7 +116,7 @@ describe "RationalNumber" do
       fifth_child.dv.should  == 1
       fifth_child.snv.should == 6
       fifth_child.sdv.should == 1
-      fifth_child.number.should == Float(fifth_child.nv)/Float(fifth_child.dv)
+      fifth_child.number.should == BigDecimal(fifth_child.nv)/BigDecimal(fifth_child.dv)
     end
 
     it "should get the next sibling from first child" do
@@ -125,7 +125,7 @@ describe "RationalNumber" do
       next_sibling.dv.should  == 1
       next_sibling.snv.should == 3
       next_sibling.sdv.should == 1
-      next_sibling.number.should == Float(next_sibling.nv)/Float(next_sibling.dv)
+      next_sibling.number.should == BigDecimal(next_sibling.nv)/BigDecimal(next_sibling.dv)
     end
 
     it "should get fifth sibling from first child" do
@@ -134,7 +134,7 @@ describe "RationalNumber" do
       fifth_sibling.dv.should  == 1
       fifth_sibling.snv.should == 6
       fifth_sibling.sdv.should == 1
-      fifth_sibling.number.should == Float(fifth_sibling.nv)/Float(fifth_sibling.dv)
+      fifth_sibling.number.should == BigDecimal(fifth_sibling.nv)/BigDecimal(fifth_sibling.dv)
     end
 
     it "should verify two children of the first child" do
@@ -143,7 +143,7 @@ describe "RationalNumber" do
       child_1_1.dv.should  == 2
       child_1_1.snv.should == 5
       child_1_1.sdv.should == 3
-      child_1_1.number.should == Float(child_1_1.nv)/Float(child_1_1.dv)
+      child_1_1.number.should == BigDecimal(child_1_1.nv)/BigDecimal(child_1_1.dv)
 
       child_1_3 = @first_child.child_from_position(3)
 
@@ -151,7 +151,7 @@ describe "RationalNumber" do
       child_1_3.dv.should  == 4
       child_1_3.snv.should == 9
       child_1_3.sdv.should == 5
-      child_1_3.number.should == Float(child_1_3.nv)/Float(child_1_3.dv)
+      child_1_3.number.should == BigDecimal(child_1_3.nv)/BigDecimal(child_1_3.dv)
     end
 
     it "should verify the position of three rational numbers" do
