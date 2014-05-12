@@ -25,13 +25,11 @@ For latest edge version:
 gem 'rational_number', :git => 'https://github.com/leifcr/rational_number.git'
 ```
 
-This gem *only* supports the following versions:
+This gem supports the following versions of ruby
 
-   * mongomapper >= 0.13
-   * ruby >= 2.0
-   * rails >= 3.2
-
-_Note: If you are using mongo\_mapper < 0.13, ruby < 2.0 or rails < 3.2 you have to use version 0.1.4.
+   * ruby 1.9.3
+   * ruby 2.0.0
+   * ruby 2.1.2
 
 ### Without bundler
 
@@ -72,5 +70,5 @@ _Dan Hazel_: For his paper on rational numbers
 ## Copyright
 
 Original ideas are Copyright Jakob Vidmar and Joel Junström. Please see their github repositories for details
-Copyright (c) 2013 Leif Ringstad.
+Copyright (c) 2013-2014 Leif Ringstad.
 See LICENSE for details.
