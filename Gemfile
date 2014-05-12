@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'coveralls', :require => false
+group :test do
+  gem 'coveralls', :require => false
+end
 
 gemspec
